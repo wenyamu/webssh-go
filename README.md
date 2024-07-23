@@ -42,3 +42,25 @@ docker build \
 --build-arg ARCH=$(echo $(dpkg --print-architecture) | awk -F '-' '{print $NF}') \
 -t my_image:tag .
 ```
+
+## 部署
+> -e port=5000 不指定时，默认端口为 5032
+>
+> -e authInfo=user:pass 页面登陆验证，用户名:密码
+>
+> -e savePass=true 保存登陆记录，记住密码，默认为 true
+```
+docker network create --ipv6 ipv6test && \
+docker run -itd \
+--net ipv6test \
+-p 5032:5000 \
+-e authInfo=user:pass \
+-e port=5000 \
+-e savePass=true \
+-e TZ=Asia/Shanghai \
+--restart always \
+--name ws2 \
+my_image:tag
+```
+
+
