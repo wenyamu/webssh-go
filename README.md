@@ -46,7 +46,7 @@ docker build \
 ## 部署
 > -e port=5000 指定容器内部监视端口，此变量缺省默认端口为 5032
 >
-> -e authInfo=user:pass 启用页面登陆验证(用户名:密码)。此变量缺省默认为不需要验证
+> -e authInfo=user:pass 启用页面登陆验证(用户名:密码)。此变量缺省默认不需要验证
 >
 > -e savePass=true 启用记住密码功能，此变量缺省默认为 true
 ```
